@@ -75,7 +75,16 @@ function CharacterStats:GetCurrentCharacterStats()
 		UltraHardcoreDB.characterStats[characterGUID] = self.defaults
 	end
 
-	return UltraHardcoreDB.characterStats[characterGUID]
+	local loadedStats = UltraHardcoreDB.characterStats[characterGUID]
+
+	-- ensure all defaults are merged into loaded stats (no nil values when migrating and/or adding stats)
+	for key, value in pairs(self.defaults) do
+		if loadedStats[key] == nil then
+			loadedStats[key] = value
+		end
+	end
+
+	return loadedStats
 end
 
 -- Update a specific stat for the current character
@@ -151,4 +160,3 @@ SLASH_RESETSTATS1 = "/resetstats"
 SlashCmdList["RESETSTATS"] = function()
 	CharacterStats:ResetStats()
 end
-
