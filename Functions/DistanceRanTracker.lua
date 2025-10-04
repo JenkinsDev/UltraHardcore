@@ -2,19 +2,19 @@
   Distance Ran System - Tracks yards ran
 ]]
 
-local totalDistanceRanYds = -1
+local distanceTraveledYds = -1
 
 local function SaveStats()
-	CharacterStats:UpdateStat("totalDistanceRanYds", totalDistanceRanYds)
+	CharacterStats:UpdateStat("distanceTraveledYds", distanceTraveledYds)
 end
 
 -- Function to initialize session tracking
 local function InitializeSessionTracking()
 	local stats = CharacterStats:GetCurrentCharacterStats()
-	if stats.totalDistanceRanYds ~= nil then
-		totalDistanceRanYds = stats.totalDistanceRanYds
+	if stats.distanceTraveledYds ~= nil then
+		distanceTraveledYds = stats.distanceTraveledYds
 	else
-		totalDistanceRanYds = 0
+		distanceTraveledYds = 0
 	end
 end
 
@@ -24,7 +24,7 @@ local function EndSession()
 end
 
 local function AddDistanceTraveled(yards)
-	totalDistanceRanYds = yards + totalDistanceRanYds
+	distanceTraveledYds = yards + distanceTraveledYds
 end
 
 -- Register events for automatic session tracking
@@ -43,9 +43,14 @@ end)
 
 local lastSaveElapsed = 0.0
 sessionFrame:SetScript("OnUpdate", function(_, elapsed)
+	-- wait for init to finish
+	if distanceTraveledYds == -1 then
+		return
+	end
+
 	-- track our estimated distance travelled since the last update
-	local yardsTraveled = GetUnitSpeed("Player") * elapsed
-	AddDistanceTraveled(yardsTraveled)
+	local traveledYds = GetUnitSpeed("Player") * elapsed
+	AddDistanceTraveled(traveledYds)
 
 	-- save every 10 seconds, or so
 	lastSaveElapsed = elapsed + lastSaveElapsed

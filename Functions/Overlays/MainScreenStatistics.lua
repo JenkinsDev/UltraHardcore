@@ -3,7 +3,7 @@
 
 -- Create the main statistics frame (invisible container for positioning)
 local statsFrame = CreateFrame("Frame", "UltraHardcoreStatsFrame", UIParent)
-statsFrame:SetSize(200, 100)
+statsFrame:SetSize(240, 100)
 statsFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 20, -20)
 
 -- Make the frame draggable
@@ -61,15 +61,15 @@ xpValue:SetPoint("TOPRIGHT", statsFrame, "TOPRIGHT", -10, -65)
 xpValue:SetText("0")
 xpValue:SetFont("Fonts\\FRIZQT__.TTF", 14)
 
-local distanceRanLabel = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-distanceRanLabel:SetPoint("TOPLEFT", statsFrame, "TOPLEFT", 10, -80)
-distanceRanLabel:SetText("Distance Ran (yds):")
-distanceRanLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
+local distanceTraveledLabel = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+distanceTraveledLabel:SetPoint("TOPLEFT", statsFrame, "TOPLEFT", 10, -80)
+distanceTraveledLabel:SetText("Distance Ran (yds):")
+distanceTraveledLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
 
-local distanceRanValue = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-distanceRanValue:SetPoint("TOPRIGHT", statsFrame, "TOPRIGHT", -10, -80)
-distanceRanValue:SetText("0")
-distanceRanValue:SetFont("Fonts\\FRIZQT__.TTF", 14)
+local distanceTraveledValue = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+distanceTraveledValue:SetPoint("TOPRIGHT", statsFrame, "TOPRIGHT", -10, -80)
+distanceTraveledValue:SetText("0")
+distanceTraveledValue:SetFont("Fonts\\FRIZQT__.TTF", 14)
 
 -- Hide the frame if the statistics setting is off
 local function CheckAddonEnabled()
@@ -107,8 +107,8 @@ local function UpdateStatistics()
 	xpValue:SetText(tostring(xp))
 
 	-- Update distance ran in yards
-	local distanceRanYds = CharacterStats:GetStat("totalDistanceRanYds")
-	distanceRanValue:SetText(string.format("%d", distanceRanYds))
+	local distanceTraveledYds = CharacterStats:GetStat("distanceTraveledYds")
+	distanceTraveledValue:SetText(string.format("%d", distanceTraveledYds))
 end
 
 -- Register events to update statistics when they change
