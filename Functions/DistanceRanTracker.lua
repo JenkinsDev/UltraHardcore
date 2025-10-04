@@ -1,6 +1,5 @@
 --[[
   Distance Ran System - Tracks yards ran
-  This system automatically tracks XP by comparing session start/end XP values
 ]]
 
 local totalDistanceRanYds = -1
@@ -26,18 +25,6 @@ end
 
 local function AddDistanceTraveled(yards)
 	totalDistanceRanYds = yards + totalDistanceRanYds
-end
-
--- Export functions globally
-_G.InitializeSessionTracking = InitializeSessionTracking
-_G.EndSession = EndSession
-_G.GetXPWithAddon = GetXPWithAddon
-_G.DisplayXP = DisplayXP
-
--- Register slash command to display XP tracking (read-only)
-SLASH_XP1 = "/xp"
-SlashCmdList["XP"] = function()
-	DisplayXP()
 end
 
 -- Register events for automatic session tracking
