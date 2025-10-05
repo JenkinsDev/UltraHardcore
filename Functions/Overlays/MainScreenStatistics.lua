@@ -141,7 +141,7 @@ local lastRefreshElapsedSeconds = 0
 statsFrame:SetScript("OnUPdate", function(_, elapsed)
 	lastRefreshElapsedSeconds = elapsed + lastRefreshElapsedSeconds
 
-	if lastRefreshElapsedSeconds >= 5 then
+	if lastRefreshElapsedSeconds >= 1 then
 		UpdateStatistics()
 		lastRefreshElapsedSeconds = 0
 	end

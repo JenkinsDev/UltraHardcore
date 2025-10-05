@@ -44,7 +44,7 @@ end)
 local lastSaveElapsed = 0.0
 sessionFrame:SetScript("OnUpdate", function(_, elapsed)
 	-- wait for init to finish
-	if distanceTraveledYds == -1 then
+	if distanceTraveledYds == -1 or UnitOnTaxi("Player") then
 		return
 	end
 
@@ -54,7 +54,7 @@ sessionFrame:SetScript("OnUpdate", function(_, elapsed)
 
 	-- save every 10 seconds, or so
 	lastSaveElapsed = elapsed + lastSaveElapsed
-	if lastSaveElapsed >= 5 then
+	if lastSaveElapsed >= 2 then
 		SaveStats()
 		lastSaveElapsed = 0
 	end
