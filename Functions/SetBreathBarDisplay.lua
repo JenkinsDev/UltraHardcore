@@ -11,7 +11,7 @@ function SetBreathBarDisplay(hideBreathBar)
     if MirrorTimer3 then
       ForceHideFrame(MirrorTimer3)
     end
-    
+
     -- Also hide any existing breath bar frames
     if PlayerBreathMeter then
       ForceHideFrame(PlayerBreathMeter)

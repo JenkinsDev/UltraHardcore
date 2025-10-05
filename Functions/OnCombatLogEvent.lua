@@ -28,44 +28,44 @@ function OnCombatLogEvent(self, event)
       if destGUID == UnitGUID('player') then
         local school = select(15, CombatLogGetCurrentEventInfo())
         local schoolNames = {
-          [2] = "Fire",
-          [3] = "Fire",
-          [4] = "Fire",
-          [5] = "Shadow",
-          [8] = "Nature",
-          [11] = "Physical",
-          [12] = "Physical",
-          [16] = "Frost",
-          [32] = "Shadow",
-          [64] = "Arcane"
+          [2] = 'Fire',
+          [3] = 'Fire',
+          [4] = 'Fire',
+          [5] = 'Shadow',
+          [8] = 'Nature',
+          [11] = 'Physical',
+          [12] = 'Physical',
+          [16] = 'Frost',
+          [32] = 'Shadow',
+          [64] = 'Arcane',
         }
-        local schoolName = schoolNames[school] or "Unknown"
-        
+        local schoolName = schoolNames[school] or 'Unknown'
+
         -- Use OverTime variant for periodic damage
         if subEvent == 'SPELL_PERIODIC_DAMAGE' then
-          if schoolName == "Physical" then
+          if schoolName == 'Physical' then
             ShowPhysicalDamageOverTimeOverlay()
-          elseif schoolName == "Shadow" then
+          elseif schoolName == 'Shadow' then
             ShowShadowDamageOverTimeOverlay()
-          elseif schoolName == "Holy" then
+          elseif schoolName == 'Holy' then
             ShowHolyDamageOverTimeOverlay()
-          elseif schoolName == "Arcane" then
+          elseif schoolName == 'Arcane' then
             ShowArcaneDamageOverTimeOverlay()
-          elseif schoolName == "Nature" then
+          elseif schoolName == 'Nature' then
             ShowNatureDamageOverTimeOverlay()
-          elseif schoolName == "Fire" then
+          elseif schoolName == 'Fire' then
             ShowFireDamageOverTimeOverlay()
           end
         else
-          if schoolName == "Shadow" then
+          if schoolName == 'Shadow' then
             ShowShadowDamageOverlay()
-          elseif schoolName == "Holy" then
+          elseif schoolName == 'Holy' then
             ShowHolyDamageOverlay()
-          elseif schoolName == "Arcane" then
+          elseif schoolName == 'Arcane' then
             ShowArcaneDamageOverlay()
-          elseif schoolName == "Nature" then
+          elseif schoolName == 'Nature' then
             ShowNatureDamageOverlay()
-          elseif schoolName == "Fire" then
+          elseif schoolName == 'Fire' then
             ShowFireDamageOverlay()
           end
         end

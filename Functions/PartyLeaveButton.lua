@@ -7,21 +7,21 @@ leaveButton:Hide()
 
 -- Create the confirmation dialog
 StaticPopupDialogs['ULTRA_HARDCORE_LEAVE_PARTY'] = {
-    text = "Are you sure you want to leave the party?",
-    button1 = "Yes, Leave Party",
-    button2 = "No, Stay",
-    OnAccept = function()
-        LeaveParty()
-    end,
-    timeout = 0,
-    whileDead = true,
-    hideOnEscape = true,
-    preferredIndex = 3,
+  text = 'Are you sure you want to leave the party?',
+  button1 = 'Yes, Leave Party',
+  button2 = 'No, Stay',
+  OnAccept = function()
+    LeaveParty()
+  end,
+  timeout = 0,
+  whileDead = true,
+  hideOnEscape = true,
+  preferredIndex = 3,
 }
 
 -- Handle button click
 leaveButton:SetScript('OnClick', function()
-    StaticPopup_Show('ULTRA_HARDCORE_LEAVE_PARTY')
+  StaticPopup_Show('ULTRA_HARDCORE_LEAVE_PARTY')
 end)
 
 -- Show/hide button based on party status
@@ -31,9 +31,9 @@ frame:RegisterEvent('RAID_ROSTER_UPDATE')
 frame:RegisterEvent('PLAYER_ENTERING_WORLD')
 
 frame:SetScript('OnEvent', function(self, event)
-    if IsInGroup() then
-        leaveButton:Show()
-    else
-        leaveButton:Hide()
-    end
-end) 
+  if IsInGroup() then
+    leaveButton:Show()
+  else
+    leaveButton:Hide()
+  end
+end)

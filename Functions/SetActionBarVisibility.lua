@@ -7,14 +7,8 @@
 MIN_LEVEL_HIDE_ACTION_BARS = 6
 
 -- all frames to hide
-ACTIOBAR_FRAMES_TO_HIDE = {
-  MainMenuBar,
-  MultiBarBottomLeft,
-  MultiBarBottomRight,
-  MultiBarLeft,
-  MultiBarRight,
-}
-
+ACTIOBAR_FRAMES_TO_HIDE =
+  { MainMenuBar, MultiBarBottomLeft, MultiBarBottomRight, MultiBarLeft, MultiBarRight }
 
 --[[
   Event handlers
@@ -32,14 +26,13 @@ function OnPlayerLevelUpEvent(self, _, hideActionBars, playerLevel)
   end
 end
 
-
 --[[
   Main functions
 ]]
 
 function SetActionBarVisibility(hideActionBars, playerLevel)
   if playerLevel == nil then
-    playerLevel = UnitLevel("player")
+    playerLevel = UnitLevel('player')
   end
 
   if hideActionBars and playerLevel >= MIN_LEVEL_HIDE_ACTION_BARS then
@@ -65,8 +58,8 @@ end
 
 function ShowHideActionBarsIntro()
   StaticPopupDialogs['ULTRA_HARDCORE_ACTION_BARS'] = {
-    text = "Congratulations! You have reached level " .. MIN_LEVEL_HIDE_ACTION_BARS .. "!\n\nYour action bars will now be hidden. Visit an inn or travel to a capital to change them.",
-    button1 = "I Understand",
+    text = 'Congratulations! You have reached level ' .. MIN_LEVEL_HIDE_ACTION_BARS .. '!\n\nYour action bars will now be hidden. Visit an inn or travel to a capital to change them.',
+    button1 = 'I Understand',
     OnAccept = function()
       SetActionBarVisibility(GLOBAL_SETTINGS.hideActionBars, MIN_LEVEL_HIDE_ACTION_BARS)
     end,

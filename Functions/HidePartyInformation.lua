@@ -3,12 +3,7 @@
   Compact party frames are not supported yet.
 ]]
 
-PARTY_MEMBER_SUBFRAMES_TO_HIDE = {
-  'HealthBar',
-  'ManaBar',
-  'Texture',
-  'Background',
-}
+PARTY_MEMBER_SUBFRAMES_TO_HIDE = { 'HealthBar', 'ManaBar', 'Texture', 'Background' }
 
 function SetPartyFramesInfo(hideGroupHealth)
   ForcePartyFrames()
@@ -25,29 +20,29 @@ function SetPartyFrameInfo(n)
     HidePartySubFrame(n, subFrame)
 
     -- Move Name subframe down a few pixels to be centered with the portrait
-    local nameFrame = _G['PartyMemberFrame' .. n .. "Name"]
-    
+    local nameFrame = _G['PartyMemberFrame' .. n .. 'Name']
+
     if nameFrame then
-      nameFrame:SetPoint("BOTTOMLEFT", 55, 25)
+      nameFrame:SetPoint('BOTTOMLEFT', 55, 25)
     end
   end
-  
+
   -- Move the entire party frame to the right by 100px and stack vertically
   local partyFrame = _G['PartyMemberFrame' .. n]
   if partyFrame then
     -- Position each party frame vertically below the previous one
     local verticalOffset = -120 - ((n - 1) * 60) -- 60px spacing between frames
-    partyFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 80, verticalOffset)
-    
+    partyFrame:SetPoint('TOPLEFT', UIParent, 'TOPLEFT', 80, verticalOffset)
+
     -- Set party frame to highest tooltip level (above 1000)
     partyFrame:SetFrameLevel(1500)
   end
-  
+
   -- Reposition target highlights to match the moved party frame
   if RepositionAllPartyTargetHighlights then
     RepositionAllPartyTargetHighlights()
   end
-  
+
   -- TODO move buffs/debuffs up
 end
 

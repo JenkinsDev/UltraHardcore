@@ -18,5 +18,4 @@ function SetBuffFrame()
 
   BuffFrame:ClearAllPoints()
   BuffFrame:SetPoint('BOTTOMRIGHT', UIParent, 'BOTTOMRIGHT', -175, 90)
-
 end

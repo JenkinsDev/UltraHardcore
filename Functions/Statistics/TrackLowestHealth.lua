@@ -17,4 +17,4 @@ frame:SetScript('OnEvent', function(self, event, unit)
   if unit == 'player' then
     TrackLowestHealth()
   end
-end) 
+end)

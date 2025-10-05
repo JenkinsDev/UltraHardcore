@@ -39,7 +39,6 @@ UltraHardcore:RegisterEvent('GROUP_ROSTER_UPDATE')
 UltraHardcore:RegisterEvent('MIRROR_TIMER_START')
 UltraHardcore:RegisterEvent('MIRROR_TIMER_STOP')
 
-
 -- 🟢 Event handler to apply all funcitons on login
 UltraHardcore:SetScript('OnEvent', function(self, event, unit)
   if event == 'PLAYER_ENTERING_WORLD' or event == 'ADDON_LOADED' then
