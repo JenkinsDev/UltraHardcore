@@ -63,7 +63,7 @@ xpValue:SetFont("Fonts\\FRIZQT__.TTF", 14)
 
 local distanceTraveledLabel = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 distanceTraveledLabel:SetPoint("TOPLEFT", statsFrame, "TOPLEFT", 10, -80)
-distanceTraveledLabel:SetText("Distance Ran (yds):")
+distanceTraveledLabel:SetText("Traveled (yds):")
 distanceTraveledLabel:SetFont("Fonts\\FRIZQT__.TTF", 14)
 
 local distanceTraveledValue = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
